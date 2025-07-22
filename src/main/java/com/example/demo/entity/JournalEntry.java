@@ -2,24 +2,23 @@ package com.example.demo.entity;
 
 //POJO
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
-@Document( collection = "journal_entries")//row
+@Document(collection = "journal_entries")
 @Data
-//equivalent to
-//@Getter @Setter @NoArgsConstructor @ToString @EqualsAndHashCode @Builder
+@NoArgsConstructor
 public class JournalEntry {
-    @Id //key
+    @Id
     private ObjectId id;
+    @NonNull
     private String title;
     private String content;
     private LocalDateTime date;
-
 }
